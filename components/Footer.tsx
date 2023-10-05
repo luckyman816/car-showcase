@@ -42,7 +42,7 @@ const Footer = () => {
 
       <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
         <p>&copy; 2023 Car Hub. All rights reserved</p>
-
+          
         <div className="footer__copyrights-link">
           <Link href="/" className="text-gray-500">
             Privacy Policy
@@ -50,6 +50,9 @@ const Footer = () => {
           <Link href="/" className="text-gray-500">
             Terms of Use
           </Link>
+          <a target="_blank" href="https://github.com/sanidhyy/car-showcase" rel="noopener noreferrer" className="text-gray-500">
+            <Image src="/github.svg" alt="github" width={25} height={25} className="object-contain" />
+          </a>
         </div>
       </div>
     </footer>
