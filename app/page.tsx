@@ -1,15 +1,15 @@
-import Image from "next/image";
-
 import { Hero, CustomFilter, SearchBar, CarCard, ShowMore } from "@/components";
 import { fetchCars } from "@/utils"
 import { fuels, yearsOfProduction } from "@/constants"
+
+const CARS_PER_PAGE = 10
 
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || new Date().getFullYear(),
     fuel: searchParams.fuel || "",
-    limit: searchParams.limit || "10",
+    limit: searchParams.limit || `${CARS_PER_PAGE}`,
     model: searchParams.model || ""
   });
 
@@ -42,7 +42,7 @@ export default async function Home({ searchParams }) {
               {allCars?.map((car, i) => <CarCard car={car} key={`car`-i} />)}
             </div>
 
-            <ShowMore pageNumber={(searchParams.pageNumber || 10) / 10} isNext={(searchParams.limit || 10) > allCars.length} />
+            <ShowMore pageNumber={(searchParams.limit || CARS_PER_PAGE) / CARS_PER_PAGE} isNext={(searchParams.limit || CARS_PER_PAGE) > allCars.length} />
           </section>
         ) : (
           <div className="home__error-container">
