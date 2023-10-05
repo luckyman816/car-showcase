@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link"
 
 import { CustomButton } from "./";
 
 const Hero = () => {
-  const handleScroll = () => {};
 
   return (
     <div className="hero">
@@ -19,11 +19,12 @@ const Hero = () => {
           process.
         </p>
 
+        <Link href="#discover">
         <CustomButton
           title="Explore Cars"
           containerStyles="bg-primary-blue text-white rounded-full mt-10"
-          handleClick={handleScroll}
         />
+          </Link>
       </div>
 
       <div className="hero__image-container">

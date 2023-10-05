@@ -18,7 +18,7 @@ const CarCard = ({ car }: CarCardProps) => {
   const carRent = calculateCarRent(city_mpg, year);
 
   return (
-    <div className="car-card group">
+    <article className="car-card group">
       <div className="car-card__content">
         <h2 className="car-card__content-title">
           {make} {model}
@@ -85,7 +85,7 @@ const CarCard = ({ car }: CarCardProps) => {
         closeModal={() => setIsOpen(false)}
         car={car}
       />
-    </div>
+    </article>
   );
 };
 

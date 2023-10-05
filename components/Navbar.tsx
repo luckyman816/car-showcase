@@ -14,6 +14,7 @@ const Navbar = () => {
             width={118}
             height={118}
             className="object-contain"
+            title="Car Hub"
           />
         </Link>
 

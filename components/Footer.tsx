@@ -14,6 +14,7 @@ const Footer = () => {
             width={118}
             height={18}
             className="object-contain"
+            title="Car Hub"
           />
           <p className="text-base text-gray-700">
             &copy; Car Hub {new Date().getFullYear()}-
@@ -31,6 +32,7 @@ const Footer = () => {
                   key={`${link.title}-${item.title}`}
                   href={item.url}
                   className="text-gray-500"
+                  title={item.title}
                 >
                   {item.title}
                 </Link>
@@ -44,13 +46,13 @@ const Footer = () => {
         <p>&copy; 2023 Car Hub. All rights reserved</p>
           
         <div className="footer__copyrights-link">
-          <Link href="/" className="text-gray-500">
+          <Link href="/" className="text-gray-500" title="Privacy Policy">
             Privacy Policy
           </Link>
-          <Link href="/" className="text-gray-500">
+          <Link href="/" className="text-gray-500" title="Terms of Use">
             Terms of Use
           </Link>
-          <a target="_blank" href="https://github.com/sanidhyy/car-showcase" rel="noopener noreferrer" className="text-gray-500">
+          <a target="_blank" href="https://github.com/sanidhyy/car-showcase" rel="noopener noreferrer" title="Source Code" className="text-gray-500">
             <Image src="/github.svg" alt="github" width={25} height={25} className="object-contain" />
           </a>
         </div>
