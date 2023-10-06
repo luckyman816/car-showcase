@@ -4,21 +4,27 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
+
 import { CustomFilterProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 
+// custom filter
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
-  const [selected, setSelected] = useState(options[0]);
-  const router = useRouter();
+  const [selected, setSelected] = useState(options[0]); // current selected filter
+  const router = useRouter(); // use router
 
+  // update url params
   const handleUpdateParams = (e: { title: string; value: string }) => {
+    // new path name
     const newPathname = updateSearchParams(title, e.value.toLowerCase());
 
+    // push new path name
     router.push(newPathname);
   };
 
   return (
     <div className="w-fit">
+      {/* list box */}
       <Listbox
         value={selected}
         onChange={(e) => {
@@ -28,7 +34,9 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
       >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
+            {/* current selected value */}
             <span className="block truncate">{selected.title}</span>
+            {/* chevron up down icon */}
             <Image
               src="/chevron-up-down.svg"
               width={20}
@@ -38,6 +46,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             />
           </Listbox.Button>
 
+          {/* options */}
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
@@ -46,6 +55,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
           >
             <Listbox.Options className="custom-filter__options">
               {options.map((option) => (
+                // single option
                 <Listbox.Option
                   key={option.title}
                   value={option}
@@ -55,6 +65,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                     }`
                   }
                 >
+                  {/* option name */}
                   {({ selected }) => (
                     <span
                       className={`block truncate ${

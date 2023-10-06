@@ -7,17 +7,20 @@ import { Dialog, Transition } from "@headlessui/react";
 import { generateCarImageUrl } from "@/utils";
 import { CarProps } from "@/types";
 
+// car details interface
 interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
   car: CarProps;
 }
 
+// car details
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          {/* model background shadow */}
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -42,6 +45,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                  {/* close button */}
                   <button
                     type="button"
                     onClick={closeModal}
@@ -56,7 +60,9 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     />
                   </button>
 
+                  {/* car details */}
                   <div className="flex-1 flex flex-col gap-3">
+                    {/* car top image */}
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
                         src={generateCarImageUrl(car)}
@@ -67,7 +73,9 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       />
                     </div>
 
+                    {/* car more images */}
                     <div className="flex gap-3">
+                      {/* image 1 */}
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
                           src={generateCarImageUrl(car, "29")}
@@ -79,6 +87,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       </div>
 
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                        {/* image 2 */}
                         <Image
                           src={generateCarImageUrl(car, "33")}
                           alt={`${car.make} ${car.model}`}
@@ -89,6 +98,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       </div>
 
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                        {/* image 3 */}
                         <Image
                           src={generateCarImageUrl(car, "13")}
                           alt={`${car.make} ${car.model}`}
@@ -101,19 +111,23 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   </div>
 
                   <div className="flex-1 flex flex-col gap-2">
+                    {/* car name */}
                     <h2 className="font-semibold text-xl capitalize">
                       {car.make} {car.model}
                     </h2>
 
+                    {/* car details */}
                     <div className="mt-3 flex flex-wrap gap-4">
                       {Object.entries(car).map(([key, value]) => (
                         <div
                           className="flex justify-between gap-5 w-full text-white capitalize"
                           key={key}
                         >
+                          {/* keys */}
                           <h4 className="text-grey">
                             {key.split("_").join(" ")}
                           </h4>
+                          {/* values */}
                           <p className="text-black-100 font-semibold">
                             {value}
                           </p>

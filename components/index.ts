@@ -1,3 +1,6 @@
+// Export new components here to use it anywhere else
+// Don't remove anything from here
+
 import Hero from "./Hero";
 import CustomButton from "./CustomButton";
 import Navbar from "./Navbar";

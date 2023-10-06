@@ -1,5 +1,9 @@
+// Export new typscript types/definitions for components to be used in other pages/components.
+// Don't remove anything from here (if not sure)
+
 import { MouseEventHandler } from "react";
 
+// custom button interface
 export interface CustomButtonProps {
   title: string;
   containerStyles?: string;
@@ -7,14 +11,15 @@ export interface CustomButtonProps {
   btnType?: "button" | "submit";
   textStyles?: string;
   rightIcon?: string;
-  isDisabled?: boolean;
 }
 
+// search manufacturer interface
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
 }
 
+// car interface
 export interface CarProps {
   city_mpg: number;
   class: string;
@@ -30,6 +35,7 @@ export interface CarProps {
   year: number;
 }
 
+// filter interface
 export interface FilterProps {
   manufacturer: string;
   year: number;
@@ -38,16 +44,19 @@ export interface FilterProps {
   model: string;
 }
 
+// option interface
 export interface OptionProps {
   title: string;
   value: string;
 }
 
+// custom filter interface
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
 }
 
+// show more interface
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;

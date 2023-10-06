@@ -1,3 +1,7 @@
+// Export new constants here to use it anywhere else
+// Don't remove anything from here
+
+// manufacturers
 export const manufacturers = [
   "Acura",
   "Alfa Romeo",
@@ -42,6 +46,7 @@ export const manufacturers = [
   "Volvo",
 ];
 
+// years of production
 export const yearsOfProduction = [
   { title: "Year", value: "" },
   { title: "2015", value: "2015" },
@@ -55,6 +60,7 @@ export const yearsOfProduction = [
   { title: "2023", value: "2023" },
 ];
 
+// fuels
 export const fuels = [
   {
     title: "Fuel",
@@ -70,6 +76,7 @@ export const fuels = [
   },
 ];
 
+// footer links
 export const footerLinks = [
   {
     title: "About",

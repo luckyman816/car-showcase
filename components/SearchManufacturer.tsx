@@ -7,12 +7,14 @@ import { Combobox, Transition } from "@headlessui/react";
 import { manufacturers } from "@/constants";
 import { SearchManufacturerProps } from "@/types";
 
+// search manufacturer
 const SearchManufacturer = ({
   manufacturer,
   setManufacturer,
 }: SearchManufacturerProps) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(""); // search query
 
+  // filtered manufacturers data
   const filteredManufacturers =
     query === ""
       ? manufacturers
@@ -20,13 +22,15 @@ const SearchManufacturer = ({
           item
             .toLowerCase()
             .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, "")),
+            .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
 
   return (
     <div className="search-manufacturer">
+      {/* combo box (autocomplete search box) */}
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
+          {/* sample car manufacurer logo */}
           <Combobox.Button className="absolute top-[14px]">
             <Image
               src="/car-logo.svg"
@@ -37,6 +41,7 @@ const SearchManufacturer = ({
             />
           </Combobox.Button>
 
+          {/* car manufacurer input */}
           <Combobox.Input
             className="search-manufacturer__input"
             placeholder="Volkswagen"
@@ -44,6 +49,7 @@ const SearchManufacturer = ({
             onChange={(e) => setQuery(e.target.value)}
           />
 
+          {/* options */}
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
@@ -52,6 +58,7 @@ const SearchManufacturer = ({
             afterLeave={() => setQuery("")}
           >
             <Combobox.Options>
+              {/* show filtered manufacturers */}
               {filteredManufacturers.map((item) => (
                 <Combobox.Option
                   key={item}
@@ -64,6 +71,7 @@ const SearchManufacturer = ({
                 >
                   {({ selected, active }) => (
                     <>
+                      {/* show active selected item */}
                       <span
                         className={`block truncate ${
                           selected ? "font-medium" : "font-normal"
@@ -71,6 +79,7 @@ const SearchManufacturer = ({
                       >
                         {item}
                       </span>
+                      {/* change style of selected item */}
                       {selected ? (
                         <span
                           className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
