@@ -1,6 +1,22 @@
 {
   "name": "car-showcase",
-  "version": "0.1.0",
+  "version": "1.0.1",
+  "author": "Sanidhya Kr. Verma",
+  "description": "Discover the best cars in the world",
+  "keywords": [
+    "reactjs",
+    "nextjs",
+    "vercel",
+    "react",
+    "car-showcase",
+    "tailwindcss",
+    "rapidapi",
+    "js",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
