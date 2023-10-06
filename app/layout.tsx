@@ -5,12 +5,16 @@ import "./globals.css";
 interface Metadata {
   title: string;
   description: string;
+  author: string;
+  themeColor: string;
 }
 
 // metadata
 export const metadata: Metadata = {
   title: "Car Hub",
   description: "Discover the best cars in the world",
+  author: "Sanidhya Kr. Verma",
+  themeColor: "#2B59FF",
 };
 
 // page layout
